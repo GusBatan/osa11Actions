@@ -1,0 +1,14 @@
+name: Scheduled Health Check
+
+on:
+  schedule:
+    - cron: '3/5 * * * *'
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@b716ccb6645355dd9fcce8002ce460e5474f7f00
+        with:
+          url: https://osa11actions.onrender.com/health
