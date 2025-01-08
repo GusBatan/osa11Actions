@@ -68,5 +68,5 @@ jobs:
         if: cancelled()
         with:
           severity: warn
-          details: Test Cancelled!
+          details: Test Cancelled!!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
