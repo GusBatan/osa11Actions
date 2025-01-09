@@ -9,8 +9,7 @@ on:
     types: [opened, synchronize]
 
 env:
-  SHOULD_DEPLOY: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
-
+  SHOULD_DEPLOY: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && !contains(join(github.event.commits.*.message), '#skip') }}
 
 jobs:
   simple_deployment_pipeline:
@@ -63,7 +62,7 @@ jobs:
           severity: error
           details: Test Failed!
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-      - name: Test Cancelled
+      - name: Test Cancelled!
         uses: rjstone/discord-webhook-notify@v1
         if: cancelled()
         with:
