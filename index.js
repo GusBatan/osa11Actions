@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors');
 const morgan = require('morgan');
 const Person = require('./models/person');
+require('./mongo');
 app.use(express.json());
 app.use(cors());
 app.use(express.json());
@@ -134,6 +135,10 @@ app.put('/api/persons/:id', (req, res, next) => {
     next(error);
     console.log('error tuli');
   }
+});
+
+app.get('/health', (req, res) => {
+  res.send('ok')
 });
 
 app.use(errorHandler);
