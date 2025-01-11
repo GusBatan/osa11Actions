@@ -10,7 +10,7 @@ export default [
     },
   },
   {
-    ignores: ['dist'], // Ignore the dist folder
+    ignores: ['dist', 'frontend'], // Ignore the dist folder
   },
   {
     rules: {

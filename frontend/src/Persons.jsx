@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Persons = (props) => {
   const handleClick = (person) => {
     if (window.confirm(`Really delete ${person.name}?`)) {
