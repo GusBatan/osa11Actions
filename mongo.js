@@ -21,7 +21,7 @@ const gracefulShutdown = () => {
 };
 
 process.on('SIGINT', () => {
-  console.log('Received SIGINT. Shutting down gracefully...');
+  console.log('Received SIGINT! Shutting down gracefully...');
   gracefulShutdown();
 });
 
